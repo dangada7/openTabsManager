@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Open Tabs Manager</title>
+    <!-- jquery -->
+    <script src="../jquery/jquery-2.0.0.min.js"></script>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="../bootstrap-3.3.6/css/bootstrap.min.css">
+    <script src="../bootstrap-3.3.6/js/bootstrap.min.js"></script>
+
+    <!-- my script -->
+    <script src="../myLibs/storeLib.js"></script>
+    <script src="../myLibs/sortLib.js"></script>
+    <script src="../myLibs/listenerLib.js"></script>
+    <script src="../myLibs/tabsLib.js"></script>
+
+    <script src="mainPage.js"></script>
+    <link rel="stylesheet" type="text/css" href="mainPage.css">
+
+</head>
+
+<body id="body" style=" background-color: #6ca4c8">
+
+    <li class="list-group-item" style="background-color:#5e90af">
+        <div class="row">
+            <button id="helpBtn" class="btn btn-default btn-md" style="margin-left:10px" data-toggle="modal" data-target="#myModal">
+                <span class="glyphicon glyphicon-info-sign" />
+            </button>
+            <!-- <div class="dropdown col-xs-1">
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="glyphicon glyphicon-menu-hamburger"></span>
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                    <li><a href="#">Useful Information</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </div> -->
+
+            <b style="font-size:150%; color:white; margin-left:55px; text-decoration: underline; ">Open Tabs Manager </b>
+
+            <div class="col-xs-3 pull-right">
+                <select class="form-control" id="filterBtn">
+                    <option value="Tabs">Tabs</option>
+                    <option value="Sites">Sites</option>
+                    <option value="Audio">Audio</option>
+                </select>
+            </div>
+        </div>
+    </li>
+
+    <!-- <button id="checkPage">Check this page now!</button> -->
+
+    <div class="container" style="margin-top: .3cm;">
+        <input type="search" class="form-control" id="input-search" placeholder="Search Titles..." autofocus>
+        <!-- <div class="container" style="margin-left:180px; margin-top:100px">
+          <span class="glyphicon glyphicon-refresh glyphicon-refresh-animate">
+        </div> -->
+        <ul class="list-group " id="openTabs" > </ul>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"><b>Open Tabs Manager</b></h4>
+                </div>
+                <div class="modal-body">
+                    <p>Hello i am hoping you enjoy this extension. </p>
+                    <p>click on the audio icon to mute or unmute the current tab</p>
+                    <p>The numbers at the end of the tabs title represent the tabs location </p>
+                    <p>Use "ctrl + shift + s" to open thie extension</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
