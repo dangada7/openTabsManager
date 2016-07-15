@@ -1,65 +1,68 @@
-//this lib export one function - addAllTabsToDOMAndSetLiseners
+//this lib export one function - resetTabsList
 //use liseners
 
-function addAllTabsToDOMAndSetLiseners(windows) {
+function resetTabsList(tabs) {
 
     var eUl_openTabs = document.getElementById("openTabs");
-    eUl_openTabs.setAttribute("style", S_strings.uiStyle);
+    eUl_openTabs.setAttribute("style", "margin-top: .3cm; overflow-y: scroll; height:" + (screen.height - 220) + "px;");
 
-    for (j = 0; j < windows.length; j++) {
-        //if windwos[j] is open tabs manager
-        var i_openTabsManagerWid = parseInt(localStorage.getItem("openTabsManagerWid"));
-        if( i_openTabsManagerWid == windows[j].id){
-          continue;
-        }
+    // for (j = 0; j < windows.length; j++) {
+    //
+    //     //if windwos[j] is open tabs manager
+    //     if( parseInt(localStorage.getItem("openTabsManagerWid")) == windows[j].id){
+    //       continue;
+    //     }
+    //
+    //     tabs = windows[j].tabs;
+    //     var eDiv_Window = createHtmlElement("div", [gp_attributes.liDividerStyle, {key:"id",value:"winTitle"}/*, {key:"contenteditable",value:"true"}*/]);
+    //     var tn_window   = document.createTextNode("Window-" + (j + 1) + ":");
+    //
+    //     AddEventListener_eDiv_winTitle(eDiv_Window);
+    //
+    //     eDiv_Window.appendChild(tn_window);
+    //     eUl_openTabs.appendChild(eDiv_Window);
 
-        tabs = windows[j].tabs;
-        var eLi_divider = createHtmlElement("div", [S_property.liDividerStyle]);
-        var tn_windowTitle    = document.createTextNode("Window-" + (j + 1) + ":");
-        eLi_divider.appendChild(tn_windowTitle);
-        eUl_openTabs.appendChild(eLi_divider);
-        // eUl_openTabs.appendChild(eLi_divider);
         for (i = 0; i < tabs.length; i++) {
 
             // (1) create all the DOM elements
-            var eImg_leftIcon   = createHtmlElement("Img", [{ key: "src", value: tabs[i].favIconUrl }, S_property.leftImgStyle]);
-            var eDiv_leftIcon   = createHtmlElement("Div", [S_property.leftIconClass]);
+            var eImg_leftIcon   = createHtmlElement("Img", [{ key: "src", value: tabs[i].favIconUrl }, gp_attributes.leftImgStyle]);
+            var eDiv_leftIcon   = createHtmlElement("Div", [gp_attributes.leftIconClass]);
 
             var tn_title        = document.createTextNode(arrangeTitle(tabs[i].title));
             var tn_tabIndex     = document.createTextNode(" (" + (tabs[i].index + 1) + ")");
-            var eDiv_middleText = createHtmlElement("Div", [S_property.middleTextClass]);
+            var eDiv_middleText = createHtmlElement("Div", [gp_attributes.middleTextClass]);
 
             var eB_tabIndex     = createHtmlElement("b", null);
 
-            var eImg_close      = createHtmlElement("Img", [S_property.closeImgSrc, S_property.closeImgStyle]);
+            var eImg_close      = createHtmlElement("Img", [gp_attributes.closeImgSrc, gp_attributes.closeImgStyle]);
             var eImg_audio;
-            var eDiv_rightIcons = createHtmlElement("Div", [S_property.rightIconsClass, S_property.rightIconsStyle]);
+            var eDiv_rightIcons = createHtmlElement("Div", [gp_attributes.rightIconsClass, gp_attributes.rightIconsStyle]);
 
-            var eDiv_row        = createHtmlElement("Div", [S_property.rowClass]);
+            var eDiv_row        = createHtmlElement("Div", [gp_attributes.rowClass]);
             var eBtn_row;
 
             //eImg_audio
             if (tabs[i].audible) {
                 var b_muted = tabs[i].mutedInfo.muted;
-                eImg_audio      = createHtmlElement("Img", [{ key: "src", value: b_muted ? S_strings.noSoundImgUrl :S_strings.soundImgUrl  }, S_property.audioImgStyle]);
+                eImg_audio      = createHtmlElement("Img", [{ key: "src", value: b_muted ? gp_files.noSoundImgUrl :gp_files.soundImgUrl  }, gp_attributes.audioImgStyle]);
             }
             //eBtn_row
             if (tabs[i].highlighted) {
-                eBtn_row        = createHtmlElement("Button", [S_property.btnClassHighlight,S_property.btnStyleHighlight ]);
+                eBtn_row        = createHtmlElement("Button", [gp_attributes.btnClassHighlight,gp_attributes.btnStyleHighlight ]);
             } else {
-                eBtn_row        = createHtmlElement("Button", [S_property.btnClass,S_property.btnStyle]);
+                eBtn_row        = createHtmlElement("Button", [gp_attributes.btnClass,gp_attributes.btnStyle]);
             }
 
             // (2) add liseners
             if (tabs[i].audible) {
                 muteOnClick(eImg_audio, tabs[i].id);
             }
-            addBtnListener(eUl_openTabs, eBtn_row, tabs[i].index, tabs[i].id, tabs[i].highlighted, windows[j].id);
+            listner_listObject(eUl_openTabs, eBtn_row, tabs[i]);
             closeOnClick(eUl_openTabs, eBtn_row, eImg_close, tabs[i].id);
 
             // (3) append children
             eDiv_leftIcon.appendChild(eImg_leftIcon);
-            eB_tabIndex.appendChild(tn_title);
+            eB_tabIndex.appendChild(tn_tabIndex);
             eDiv_middleText.appendChild(tn_title);
             eDiv_middleText.appendChild(eB_tabIndex);
 
@@ -76,7 +79,7 @@ function addAllTabsToDOMAndSetLiseners(windows) {
 
             eUl_openTabs.appendChild(eBtn_row);
         } //close for-loop
-    } //close for-loop
+    // } //close for-loop
 } // close addAllTabsToDOM
 
 //arrange title (remove long strings)

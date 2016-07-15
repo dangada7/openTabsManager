@@ -15,7 +15,7 @@
       }
     },
     "background": {
-      "scripts": ["background.js"]
+      "scripts": ["background.js", "misc/globalProperty.js"]
     },
     "browser_action": {
         "default_icon": "images/icon.png",
