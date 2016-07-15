@@ -6,22 +6,6 @@ function resetTabsList(tabs) {
     var eUl_openTabs = document.getElementById("openTabs");
     eUl_openTabs.setAttribute("style", "margin-top: .3cm; overflow-y: scroll; height:" + (screen.height - 220) + "px;");
 
-    // for (j = 0; j < windows.length; j++) {
-    //
-    //     //if windwos[j] is open tabs manager
-    //     if( parseInt(localStorage.getItem("openTabsManagerWid")) == windows[j].id){
-    //       continue;
-    //     }
-    //
-    //     tabs = windows[j].tabs;
-    //     var eDiv_Window = createHtmlElement("div", [gp_attributes.liDividerStyle, {key:"id",value:"winTitle"}/*, {key:"contenteditable",value:"true"}*/]);
-    //     var tn_window   = document.createTextNode("Window-" + (j + 1) + ":");
-    //
-    //     AddEventListener_eDiv_winTitle(eDiv_Window);
-    //
-    //     eDiv_Window.appendChild(tn_window);
-    //     eUl_openTabs.appendChild(eDiv_Window);
-
         for (i = 0; i < tabs.length; i++) {
 
             // (1) create all the DOM elements

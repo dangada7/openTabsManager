@@ -40,17 +40,9 @@ function muteOnClick(imgTag, tabId) {
 //on click hightlight tab
 function listner_listObject(eDiv_parent , eBtn_listObject, tab) {
 
-
+    //(1) buttons
     eBtn_listObject.addEventListener('keydown', function(e){
-
-      //13 == enter button
-      if(e.keyCode==gp_keys.enter){
-        var key, i = 0;
-        while(key = window.localStorage.key(i)){
-          i++;
-          console.log(key + "=" + window.localStorage.getItem(key));
-        }
-
+      if(e.keyCode == gp_keys.enter){
         var s_tag = prompt("Enter new tag:");
         if (s_tag != null && s_tag != "") {
           window.localStorage.setItem(tab.url, s_tag);
@@ -63,6 +55,7 @@ function listner_listObject(eDiv_parent , eBtn_listObject, tab) {
       }
     }, false);
 
+    //(2) focus
     eBtn_listObject.addEventListener('focus', function(){
       var i_backGroundWindowId = parseInt(localStorage.getItem("backGroundWindowId"));
       var i_openTabsManagerWid = parseInt(localStorage.getItem("openTabsManagerWid"));
@@ -83,6 +76,7 @@ function listner_listObject(eDiv_parent , eBtn_listObject, tab) {
         }
     }, false);
 
+    // (3) focusout
     eBtn_listObject.addEventListener('focusout', function(){
       if(tab.highlighted){
         eBtn_listObject.setAttribute("style", "margin-top:2px; background-color:" + gp_color.blue);
@@ -93,6 +87,7 @@ function listner_listObject(eDiv_parent , eBtn_listObject, tab) {
 
 };
 
+
 function addMyEventsListener() {
     document.getElementById("filterBtn").addEventListener("focus", function() {
         this.setAttribute("style", "background-color:" + gp_color.green);
@@ -102,11 +97,11 @@ function addMyEventsListener() {
         this.setAttribute("style", "");
     });
 
-    document.getElementById("helpBtn").addEventListener("focus", function() {
-        this.setAttribute("style", "margin-left:10px; background-color:" + gp_color.green);
-    });
-
-    document.getElementById("helpBtn").addEventListener("focusout", function() {
-        this.setAttribute("style", "margin-left:10px");
+    $("#myTags").click(function(){
+      var key, i = 0;
+      while(key = window.localStorage.key(i)){
+        i++;
+        console.log(key + "=" + window.localStorage.getItem(key));
+      }
     });
 }

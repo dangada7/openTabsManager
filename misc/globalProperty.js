@@ -38,6 +38,6 @@ var gp_localStorageKeys = {
 };
 
 var gp_keys = {
-  delete : 46 ,
-  enter : 13 ,
+  delete  : 46 ,
+  enter   : 13 ,
 };
