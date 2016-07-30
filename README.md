@@ -1,25 +1,40 @@
 # OpenTabsManager
 Help the user manage his open tabs on chrome
 
-### Implemeted features
-1. Display a list with all the open Tabs of the current window.
-2. Hightlight tab in the background on selected
-3. Close tabs
-4. Search tabs titles
-5. Close window on unfocused 
-
-### Future features
-1. tag URLs
+### Things to do
+1. Tag URLs
+  - Show tags in the main view (finish)
+  - Better UI for creating new tags
+  - in menu button - show all the tags (edit tags)
 2. menu
-  - show all the tags (edit the tags)
   - help (how to use)
   - About
+3. Refactoring - move all style to css
+4. more information about the files
+
+### Features
+1. Display a list with all the open Tabs of the current window.
+2. Highlighted tab in the background on selected
+3. Close tabs
+4. Search tabs titles
+5. Close window on unfocused
+6. Add tags to tabs
 
 ### how to use
-- Use "tab" and "shift + tab" to move between tabs
-- Use "ctrl + shift + s" to open the tabs manger extension
+- Use "tab" and "shift + tab" to move between tabs.
+- Use "ctrl + shift + s" to open the tabs manger extension.
+- use "t" to add new tag.
 
-### External library 
+### External library
 - bootstrap 3.3.6
 - jquery 2.0.0
-- chrome API 
+- chrome API
+
+### Files architecture  
+- popup.* the first window, create a new popup window - mainPage
+- mainPage.* - contain the main page
+- misc
+  - globalProperty.js - contain all the global properties
+  - listenerLib.js - contain all the button listener
+  - sortLib.js
+  - tabLib.js - contain the code that arrange the tabs

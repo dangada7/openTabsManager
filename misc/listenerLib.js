@@ -1,20 +1,20 @@
 //export all function
+//
+// function AddEventListener_eDiv_winTitle(eDiv_winTitle) {
+//     eDiv_winTitle.addEventListener('click', function() {
+//
+//         var winTitle = prompt("Please enter new window name", eDiv_winTitle.innerHTML);
+//         if (winTitle != "" && winTitle != null) {
+//           eDiv_winTitle.innerHTML = winTitle;
+//         }
+//     });
+// };
 
-function AddEventListener_eDiv_winTitle(eDiv_winTitle) {
-    eDiv_winTitle.addEventListener('click', function() {
-
-        var winTitle = prompt("Please enter new window name", eDiv_winTitle.innerHTML);
-        if (winTitle != "" && winTitle != null) {
-          eDiv_winTitle.innerHTML = winTitle;
-        }
-    });
-};
-
-function winTitleAddEventListener(tn_windowTitle){
-  tn_windowTitle.addEventListener('DOMCharacterDataModified', function() {
-
-  }, false);
-}
+// function winTitleAddEventListener(tn_windowTitle){
+//   tn_windowTitle.addEventListener('DOMCharacterDataModified', function() {
+//
+//   }, false);
+// }
 
 // on click close tab
 function closeOnClick(parentTag, childTag, imgTag, tabId) {
@@ -37,12 +37,20 @@ function muteOnClick(imgTag, tabId) {
     }, false);
 };
 
-//on click hightlight tab
+//on click list object (tab)
 function listner_listObject(eDiv_parent , eBtn_listObject, tab) {
+
+    // eBtn_listObject.addEventListener('contextmenu', function(e){
+    //     console.log("left mouse click");
+    //     e.stopPropagation();
+    //
+    // });
+
 
     //(1) buttons
     eBtn_listObject.addEventListener('keydown', function(e){
-      if(e.keyCode == gp_keys.enter){
+
+      if(e.keyCode == gp_keys.t){
         var s_tag = prompt("Enter new tag:");
         if (s_tag != null && s_tag != "") {
           window.localStorage.setItem(tab.url, s_tag);
@@ -86,7 +94,6 @@ function listner_listObject(eDiv_parent , eBtn_listObject, tab) {
     }, false);
 
 };
-
 
 function addMyEventsListener() {
     document.getElementById("filterBtn").addEventListener("focus", function() {

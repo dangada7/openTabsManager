@@ -9,14 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
           window.close();
   }
 
-  sortAndsetTabs();
-
-  //listenerLib
-  addMyEventsListener();
-
-}, false);
-
-function sortAndsetTabs(){
   //add all the tabs
   chrome.windows.getAll({populate: true}, function(windows) {
 
@@ -26,7 +18,12 @@ function sortAndsetTabs(){
       resetTabsList(windows[0].tabs);
 
   }); // close chrome.tabs.getAllInWindow
-}
+
+  //listenerLib
+  addMyEventsListener();
+
+}, false);
+
 
 // select sort.
 $(function() {

@@ -27,7 +27,7 @@ var gp_attributes = {
     btnClassHighlight : { key: "class", value: "list-group-item tab" },
     btnClass          : { key: "class", value: "list-group-item tab" },
     btnStyle          : { key: "style", value: "margin-top:2px;" },
-    liDividerStyle    : { key: "style", value: "border-style: ; border-width: 3px; text-align: center; margin-top:2px; font-size:150%; color:white; background-color:"+ gp_color.darkPurple},
+    liDividerStyle    : { key: "style", value: "border-style: ; border-width: 3px; text-align: center; margin-top:4px; font-size:150%; color:white; background-color:"+ gp_color.darkPurple},
     liDividerClass    : { key: "class", value: "list-group-item"},
     style_subTitle    : { key: "style", value: "border-style: ; border-width: 3px; text-align: center; margin-top:2px; font-size:130%; color:white; background-color:"+ gp_color.purple},
 };
@@ -40,4 +40,5 @@ var gp_localStorageKeys = {
 var gp_keys = {
   delete  : 46 ,
   enter   : 13 ,
+  t       : 84 ,
 };
