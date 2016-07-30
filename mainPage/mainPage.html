@@ -19,9 +19,10 @@
     <link rel="stylesheet" type="text/css" href="mainPage.css">
 
 </head>
-<body id="body" style=" background-color: #6ca4c8">
 
-    <li class="list-group-item" style="background-color:#5e90af">
+<body id="body">
+
+    <li id="header" class="list-group-item">
         <div class="row">
             <div id="dropDwonMenu" class="dropdown col-xs-1">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -34,7 +35,7 @@
                 </ul>
             </div>
 
-            <b style="font-size:150%; color:white; margin-left:55px; text-decoration: underline; ">Open Tabs Manager </b>
+            <b id="title">Open Tabs Manager </b>
 
             <div class="col-xs-3 pull-right">
                 <select class="form-control" id="filterBtn">
@@ -46,12 +47,37 @@
         </div>
     </li>
 
-    <div class="container" style="margin-top: .3cm;">
+
+
+    <!-- tags list  -->
+    <div id="tags-list" class="container">
         <input type="search" class="form-control" id="input-search" placeholder="Search Titles..." autofocus>
         <ul class="list-group " id="openTabs" > </ul>
     </div>
 
-    
+
+    <!-- My tags modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+          </div>
+          <div class="modal-body">
+            <p>Some text in the modal.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
 
 </body>
 

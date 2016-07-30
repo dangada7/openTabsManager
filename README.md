@@ -4,12 +4,12 @@ Help the user manage his open tabs on chrome
 ### Things to do
 1. Tag URLs
   - Show tags in the main view (finish)
-  - Better UI for creating new tags
+  - Better UI for creating new tags - use popover
   - in menu button - show all the tags (edit tags)
 2. menu
   - help (how to use)
   - About
-3. Refactoring - move all style to css
+3. Refactoring - move all style to css (finish)
 4. more information about the files
 
 ### Features

@@ -17,3 +17,22 @@
 span.glyphicon-refresh {
     font-size: 3em;
 }
+
+body {
+  background-color: #6ca4c8;
+}
+
+#header{
+  background-color:#5e90af;
+}
+
+#header #title{
+  font-size:150%;
+  color:white;
+  margin-left:55px;
+  text-decoration: underline;
+}
+
+#tags-list{
+  margin-top: .3cm;
+}
