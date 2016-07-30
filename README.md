@@ -6,6 +6,7 @@ Help the user manage his open tabs on chrome
 2. Hightlight tab in the background on selected
 3. Close tabs
 4. Search tabs titles
+5. Close window on unfocused 
 
 ### Future features
 1. tag URLs
