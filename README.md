@@ -1,5 +1,5 @@
 # OpenTabsManager
-Help the user manage his open tabs on chrome
+Help the user manage his open tabs on chrome.
 
 ### Things to do
 1. Tag URLs
@@ -9,8 +9,10 @@ Help the user manage his open tabs on chrome
 2. menu
   - help (how to use)
   - About
+  - settings (window location and size)
 3. Refactoring - move all style to css (finish)
 4. more information about the files
+5. Last tabs close.
 
 ### Features
 1. Display a list with all the open Tabs of the current window.
@@ -23,7 +25,8 @@ Help the user manage his open tabs on chrome
 ### how to use
 - Use "tab" and "shift + tab" to move between tabs.
 - Use "ctrl + shift + s" to open the tabs manger extension.
-- use "t" to add new tag.
+- Use "t" to add new tag.
+- On unfocused the extension will be closed.
 
 ### External library
 - bootstrap 3.3.6

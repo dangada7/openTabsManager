@@ -29,7 +29,7 @@
                     <span class="glyphicon glyphicon-menu-hamburger"></span>
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                    <li> <a href="#" id="myTags">My Tags </a></li>
+                    <li> <a href="#" id="myTags" data-toggle="modal" data-target="#myModal" >My Tags </a></li>
                     <li role="separator" class="divider"></li>
                     <li> <a href="#">About</a></li>
                 </ul>
@@ -48,7 +48,6 @@
     </li>
 
 
-
     <!-- tags list  -->
     <div id="tags-list" class="container">
         <input type="search" class="form-control" id="input-search" placeholder="Search Titles..." autofocus>
@@ -64,9 +63,9 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Modal Header</h4>
+            <h4 class="modal-title">My Tags: </h4>
           </div>
-          <div class="modal-body">
+          <div id="myTagsModalBody" class="modal-body">
             <p>Some text in the modal.</p>
           </div>
           <div class="modal-footer">

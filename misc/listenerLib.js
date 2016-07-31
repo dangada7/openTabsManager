@@ -15,8 +15,9 @@
 //
 //   }, false);
 // }
-
+// ============================================================
 // on click close tab
+// ============================================================
 function closeOnClick(parentTag, childTag, imgTag, tabId) {
     imgTag.addEventListener('click', function() {
         event.stopPropagation();
@@ -26,7 +27,9 @@ function closeOnClick(parentTag, childTag, imgTag, tabId) {
     }, false);
 };
 
+// ============================================================
 // on click mute tab
+// ============================================================
 function muteOnClick(imgTag, tabId) {
     imgTag.addEventListener('click', function() {
         event.stopPropagation();
@@ -36,8 +39,9 @@ function muteOnClick(imgTag, tabId) {
         });
     }, false);
 };
-
-//on click list object (tab)
+// ============================================================
+// on click list object (tab)
+// ============================================================
 function listner_listObject(eDiv_parent , eBtn_listObject, tab) {
 
     // eBtn_listObject.addEventListener('contextmenu', function(e){
@@ -45,7 +49,6 @@ function listner_listObject(eDiv_parent , eBtn_listObject, tab) {
     //     e.stopPropagation();
     //
     // });
-
 
     //(1) buttons
     eBtn_listObject.addEventListener('keydown', function(e){
@@ -95,6 +98,8 @@ function listner_listObject(eDiv_parent , eBtn_listObject, tab) {
 
 };
 
+// ============================================================
+// ============================================================
 function addMyEventsListener() {
     document.getElementById("filterBtn").addEventListener("focus", function() {
         this.setAttribute("style", "background-color:" + gp_color.green);
@@ -104,11 +109,55 @@ function addMyEventsListener() {
         this.setAttribute("style", "");
     });
 
+
     $("#myTags").click(function(){
-      var key, i = 0;
-      while(key = window.localStorage.key(i)){
-        i++;
-        console.log(key + "=" + window.localStorage.getItem(key));
-      }
+      addTagsList()
     });
+
+}
+
+// ============================================================
+// ============================================================
+function addTagsList(){
+
+    var arr_tabsWithTags = getTabsWithTags()
+
+    var div = document.getElementById('myTagsModalBody');
+    div.innerHTML = ""
+    for(i=0; i< arr_tabsWithTags.length; i++){
+        var eP_test   = createHtmlElement("p", null);
+        eP_test.innerHTML = arr_tabsWithTags[i].tagName;
+        div.appendChild(eP_test);
+        for(j=0; j< arr_tabsWithTags[i].arr_tabs.length; j++){
+          eP_test   = createHtmlElement("p", null);
+          eP_test.innerHTML = "===" + arr_tabsWithTags[i].arr_tabs[j];
+          div.appendChild(eP_test);
+        }//close for
+    }//close for
+}
+
+
+// ============================================================
+// ============================================================
+function getTabsWithTags(){
+
+  var arr_tabsWithTags = [];
+  var urlKey, i = 0, j;
+  while(urlKey = window.localStorage.key(i)){
+    i++;
+    var tagName = window.localStorage.getItem(urlKey)
+    console.log(tagName + "=" + urlKey);
+    for(j=0 ; j< arr_tabsWithTags.length; j++){
+      if(arr_tabsWithTags[j].tagName == tagName){
+        arr_tabsWithTags[j].arr_tabs.push(urlKey);
+        break;
+      }
+    }//close for
+    if (j == arr_tabsWithTags.length){
+      var obj_tabWithTag = {tagName: tagName, arr_tabs:[urlKey]}
+      arr_tabsWithTags.push(obj_tabWithTag);
+    }
+  }//close for
+
+  return arr_tabsWithTags;
 }
