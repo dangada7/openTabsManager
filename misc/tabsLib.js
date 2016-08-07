@@ -1,14 +1,22 @@
 //this lib export one function - resetTabsList
 //use liseners
 
+// ============================================================
+// ============================================================
+function resetTabsList() {
+    var tabs = chrome.windows.getAll({populate: true}, function(windows) {
+        resetTabsListWithTabs(windows[0].tabs);
+    });
+}
 
 // ============================================================
 // ============================================================
-function resetTabsList(tabs) {
+function resetTabsListWithTabs(tabs) {
 
     arr_tabsWithTags = arrangeTabsByTags(tabs);
 
     var eUl_openTabs = document.getElementById("openTabs");
+    eUl_openTabs.innerHTML = "";
     eUl_openTabs.setAttribute("style", "margin-top: .3cm; overflow-y: scroll; height:" + (screen.height - 220) + "px;");
 
     var i, j;

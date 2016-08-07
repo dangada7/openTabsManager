@@ -9,15 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
           window.close();
   }
 
-  //add all the tabs
-  chrome.windows.getAll({populate: true}, function(windows) {
-
-      // for(var i=0; i < windows.length; i++)
-        // windows[0].tabs = sortTabs(windows[i].tabs);
-
-      resetTabsList(windows[0].tabs);
-
-  }); // close chrome.tabs.getAllInWindow
+  resetTabsList();
 
   //listenerLib
   addMyEventsListener();

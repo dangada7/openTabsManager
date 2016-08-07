@@ -26,10 +26,13 @@ body {
   background-color: #5e90af;
 }
 
+#header #div-title{
+  text-align: center;
+}
+
 #header #title{
   font-size:150%;
   color:white;
-  margin-left:55px;
   text-decoration: underline;
 }
 

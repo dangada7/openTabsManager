@@ -56,7 +56,9 @@ function listner_listObject(eDiv_parent , eBtn_listObject, tab) {
       if(e.keyCode == gp_keys.t){
         var s_tag = prompt("Enter new tag:");
         if (s_tag != null && s_tag != "") {
+
           window.localStorage.setItem(tab.url, s_tag);
+          resetTabsList();
         }
       }
 
@@ -101,11 +103,11 @@ function listner_listObject(eDiv_parent , eBtn_listObject, tab) {
 // ============================================================
 // ============================================================
 function addMyEventsListener() {
-    document.getElementById("filterBtn").addEventListener("focus", function() {
+    document.getElementById("dropdownMenu2").addEventListener("focus", function() {
         this.setAttribute("style", "background-color:" + gp_color.green);
     });
 
-    document.getElementById("filterBtn").addEventListener("focusout", function() {
+    document.getElementById("dropdownMenu2").addEventListener("focusout", function() {
         this.setAttribute("style", "");
     });
 
@@ -125,12 +127,12 @@ function addTagsList(){
     var div = document.getElementById('myTagsModalBody');
     div.innerHTML = ""
     for(i=0; i< arr_tabsWithTags.length; i++){
-        var eP_test   = createHtmlElement("p", null);
+        var eP_test   = createHtmlElement("b", null);
         eP_test.innerHTML = arr_tabsWithTags[i].tagName;
         div.appendChild(eP_test);
         for(j=0; j< arr_tabsWithTags[i].arr_tabs.length; j++){
           eP_test   = createHtmlElement("p", null);
-          eP_test.innerHTML = "===" + arr_tabsWithTags[i].arr_tabs[j];
+          eP_test.innerHTML = " - " + arr_tabsWithTags[i].arr_tabs[j];
           div.appendChild(eP_test);
         }//close for
     }//close for
@@ -146,7 +148,6 @@ function getTabsWithTags(){
   while(urlKey = window.localStorage.key(i)){
     i++;
     var tagName = window.localStorage.getItem(urlKey)
-    console.log(tagName + "=" + urlKey);
     for(j=0 ; j< arr_tabsWithTags.length; j++){
       if(arr_tabsWithTags[j].tagName == tagName){
         arr_tabsWithTags[j].arr_tabs.push(urlKey);

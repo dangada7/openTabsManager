@@ -13,6 +13,8 @@ Help the user manage his open tabs on chrome.
 3. Refactoring - move all style to css (finish)
 4. more information about the files
 5. Last tabs close.
+6. esc exit
+7. arrange title
 
 ### Features
 1. Display a list with all the open Tabs of the current window.
