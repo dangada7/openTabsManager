@@ -3,7 +3,7 @@
 
     "name": "Open Tab Manager",
     "description": "This extension will help the user to manage his open tabs ",
-    "version": "1.0",
+    "version": "2.0",
     "commands": {
       "_execute_browser_action": {
         "suggested_key": {
