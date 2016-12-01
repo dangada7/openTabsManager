@@ -66,6 +66,12 @@ function listner_listObject(eDiv_parent , eBtn_listObject, tab) {
         chrome.tabs.remove(tab.id);
         eDiv_parent.removeChild(eBtn_listObject);
       }
+
+      if(e.keyCode == gp_keys.enter){
+        
+      }
+
+
     }, false);
 
     //(2) focus

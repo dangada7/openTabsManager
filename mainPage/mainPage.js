@@ -1,40 +1,36 @@
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
 
-  // window.onblur = function(){
-  //   window.close();
-  // };
+    document.body.onkeydown = function (e) {
+        if (e.keyCode == 27)
+            window.close();
+    }
 
-  document.body.onkeydown = function(e) {
-      if (e.keyCode == 27)
-          window.close();
-  }
+    resetTabsList();
 
-  resetTabsList();
-
-  //listenerLib
-  addMyEventsListener();
+    //listenerLib
+    addMyEventsListener();
 
 }, false);
 
 
 // select sort.
-$(function() {
-  $("select").change(function() {
-      var str = "";
-      $('.list-group .list-group-item').each(function() {
-          $(this).remove();
-      });
-      $('.list-group #winTitle').each(function() {
-          $(this).remove();
-      });
+$(function () {
+    $("select").change(function () {
+        var str = "";
+        $('.list-group .list-group-item').each(function () {
+            $(this).remove();
+        });
+        $('.list-group #winTitle').each(function () {
+            $(this).remove();
+        });
 
-      sortAndsetTabs();
-  });
+        sortAndsetTabs();
+    });
 });
 
 //search input
-$(function() {
-    $('#input-search').on('keyup', function(e) {
+$(function () {
+    $('#input-search').on('keyup', function (e) {
         //click on Esc
         if (e.keyCode == 27) {
             $(this).blur();
@@ -43,7 +39,7 @@ $(function() {
         var rex = new RegExp($(this).val(), 'i');
         $('.list-group .tab').hide();
 
-        $('.list-group .tab').filter(function() {
+        $('.list-group .tab').filter(function () {
             return rex.test($(this).text());
         }).show();
     });
