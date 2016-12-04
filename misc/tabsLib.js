@@ -20,7 +20,7 @@ function resetTabsListWithTabs(tabs) {
     eUl_openTabs.setAttribute("style", "margin-top: .3cm; overflow-y: scroll; height:" + (screen.height - 220) + "px;");
 
     var i, j;
-    for(i=0 ; i<arr_tabsWithTags.length; i++){
+    for(i=0 ; i < arr_tabsWithTags.length; i++){
 
       var eDiv_Window = createHtmlElement("div", [gp_attributes.liDividerStyle, {key:"id",value:"winTitle"}]);
       var tn_window   = document.createTextNode(arr_tabsWithTags[i].tagName);
@@ -33,7 +33,11 @@ function resetTabsListWithTabs(tabs) {
         var eImg_leftIcon   = createHtmlElement("Img", [{ key: "src", value: arr_tabsWithTags[i].tabs[j].favIconUrl }, gp_attributes.leftImgStyle]);
         var eDiv_leftIcon   = createHtmlElement("Div", [gp_attributes.leftIconClass]);
 
-        var tn_title        = document.createTextNode(arrangeTitle(arr_tabsWithTags[i].tabs[j].title));
+        var tn_title        = document.createTextNode(cutEndString(arr_tabsWithTags[i].tabs[j].title));
+        var eB_title        = createHtmlElement("B",[{key: "class", value: "title"},{key:"value",value:arr_tabsWithTags[i].tabs[j].title}] );
+        var eBr_middleText  = createHtmlElement("Br");
+        var tn_url          = document.createTextNode(cutEndString(arr_tabsWithTags[i].tabs[j].url));
+        var eSmall_url      = createHtmlElement("Small", [{key: "class", value: "url"},{key:"value",value:arr_tabsWithTags[i].tabs[j].url}]);
         var eDiv_middleText = createHtmlElement("Div", [gp_attributes.middleTextClass]);
 
         var eImg_close      = createHtmlElement("Img", [gp_attributes.closeImgSrc, gp_attributes.closeImgStyle]);
@@ -55,18 +59,23 @@ function resetTabsListWithTabs(tabs) {
             eBtn_row        = createHtmlElement("Button", [gp_attributes.btnClass,gp_attributes.btnStyle]);
         }
 
-        // (2) add liseners
+        // (2) add listeners
         if (arr_tabsWithTags[i].tabs[j].audible) {
             muteOnClick(eImg_audio, arr_tabsWithTags[i].tabs[j].id);
         }
-        listner_listObject(eUl_openTabs, eBtn_row, arr_tabsWithTags[i].tabs[j]);
+        listener_listObject(eUl_openTabs, eBtn_row, arr_tabsWithTags[i].tabs[j]);
         closeOnClick(eUl_openTabs, eBtn_row, eImg_close, arr_tabsWithTags[i].tabs[j].id);
 
         // (3) append children
         eDiv_leftIcon.appendChild(eImg_leftIcon);
-        // eB_tabIndex.appendChild(tn_tabIndex);
-        eDiv_middleText.appendChild(tn_title);
-        // eDiv_middleText.appendChild(eB_tabIndex);
+
+        eSmall_url.appendChild(tn_url);
+
+        eB_title.appendChild(tn_title);
+
+        eDiv_middleText.appendChild(eB_title);
+        eDiv_middleText.appendChild(eBr_middleText);
+        eDiv_middleText.appendChild(eSmall_url);
 
         if (arr_tabsWithTags[i].tabs[j].audible) {
             eDiv_rightIcons.appendChild(eImg_audio);
@@ -89,9 +98,9 @@ function resetTabsListWithTabs(tabs) {
 // ============================================================
 // arrange title (remove long strings)
 // ============================================================
-function arrangeTitle(s_tabSitle) {
+function cutEndString(s_tabTitle) {
     var result = "";
-    var sArr_words = s_tabSitle.split(" ");
+    var sArr_words = s_tabTitle.split(" ");
     for (var i = 0; i < sArr_words.length; i++) {
         if (sArr_words[i].length > 40) {
             result = result + " " + sArr_words[i].substring(0, 40) + "...";
@@ -101,7 +110,6 @@ function arrangeTitle(s_tabSitle) {
     }
     return result;
 };
-
 
 // ============================================================
 // ============================================================

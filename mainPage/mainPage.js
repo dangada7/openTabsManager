@@ -42,5 +42,18 @@ $(function () {
         $('.list-group .tab').filter(function () {
             return rex.test($(this).text());
         }).show();
+
+        $(".title").html( function(){
+            return $(this).attr("value").replace(rex, function(match){
+                 return '<span class="highlight">' + match + '</span>';
+            })
+        });
+
+        $(".url").html( function(){
+            return $(this).attr("value").replace(rex, function(match){
+                 return '<span class="highlight">' + match + '</span>';
+            })
+        });
+
     });
 });

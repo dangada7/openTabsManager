@@ -39,3 +39,7 @@ body {
 #tags-list{
   margin-top: .3cm;
 }
+
+.highlight {
+  background: yellow;
+}

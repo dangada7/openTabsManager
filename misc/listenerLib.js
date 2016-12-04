@@ -42,7 +42,7 @@ function muteOnClick(imgTag, tabId) {
 // ============================================================
 // on click list object (tab)
 // ============================================================
-function listner_listObject(eDiv_parent , eBtn_listObject, tab) {
+function listener_listObject(eDiv_parent , eBtn_listObject, tab) {
 
     // eBtn_listObject.addEventListener('contextmenu', function(e){
     //     console.log("left mouse click");
