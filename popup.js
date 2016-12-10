@@ -11,11 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
             var h = screen.height;
             var w = screen.width;
             chrome.windows.create({
-                url: "mainPage/mainPage.html",
-                height: h,
-                width: Math.round(w / 3),
-                left: Math.round(2 * w / 3),
-                type: "popup",
+                url : "mainPage/mainPage.html",
+                height : h,
+                width : Math.round(w / 3),
+                left : Math.round(2 * w / 3),
+                type : "popup",
             }, function(mainPageWindow) {
                 localStorage.setItem("openTabsManagerWid", mainPageWindow.id);
             });

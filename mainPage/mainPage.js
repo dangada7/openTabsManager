@@ -1,4 +1,9 @@
-document.addEventListener('DOMContentLoaded', function () {
+        document.addEventListener('DOMContentLoaded', function () {
+
+    chrome.windows.onFocusChanged.addListener(function(){
+        resetTabsList();
+        document.getElementById("input-search").focus();
+    });
 
     document.body.onkeydown = function (e) {
         if (e.keyCode == 27)

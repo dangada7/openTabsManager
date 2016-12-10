@@ -48,7 +48,6 @@ function listener_listObject(eDiv_parent , eBtn_listObject, tab) {
     //     console.log("left mouse click");
     //     e.stopPropagation();
     //
-    // });
 
     //(1) buttons
     eBtn_listObject.addEventListener('keydown', function(e){
@@ -68,20 +67,20 @@ function listener_listObject(eDiv_parent , eBtn_listObject, tab) {
       }
 
       if(e.keyCode == gp_keys.enter){
-        
+          var winId = parseInt(window.localStorage.getItem(gp_localStorageKeys.openTabsManagerWinId));
+          chrome.windows.update(winId,{ state : "minimized"});
       }
-
 
     }, false);
 
-    //(2) focus
+    // (2) focus
     eBtn_listObject.addEventListener('focus', function(){
       var i_backGroundWindowId = parseInt(localStorage.getItem("backGroundWindowId"));
       var i_openTabsManagerWid = parseInt(localStorage.getItem("openTabsManagerWid"));
 
       if(i_backGroundWindowId != tab.windowId){
           localStorage.setItem("backGroundWindowId",tab.windowId);
-          chrome.windows.update(windowId, {focused : true}, function(){});
+          chrome.windows.update(tab.windowId, {focused : true}, function(){});
           chrome.windows.update(i_openTabsManagerWid, {focused : true}, function(){});
       }
       chrome.tabs.get(tab.id, function(tab){
