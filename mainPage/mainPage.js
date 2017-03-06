@@ -1,4 +1,4 @@
-        document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
 
     chrome.windows.onFocusChanged.addListener(function(){
         resetTabsList();

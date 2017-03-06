@@ -37,7 +37,7 @@ function resetTabsListWithTabs(tabs) {
         var eB_title        = createHtmlElement("B",[{key: "class", value: "title"},{key:"value",value:arr_tabsWithTags[i].tabs[j].title}] );
         var eBr_middleText  = createHtmlElement("Br");
         var tn_url          = document.createTextNode(arrangeUrl(arr_tabsWithTags[i].tabs[j].url));
-        var eSmall_url      = createHtmlElement("Small", [{key: "class", value: "url"},{key:"value",value:arr_tabsWithTags[i].tabs[j].url}]);
+        var eSmall_url      = createHtmlElement("Small", [{key: "class", value: "url"},{key:"value",value:arrangeUrl(arr_tabsWithTags[i].tabs[j].url)}]);
         var eDiv_middleText = createHtmlElement("Div", [gp_attributes.middleTextClass]);
 
         var eImg_close      = createHtmlElement("Img", [gp_attributes.closeImgSrc, gp_attributes.closeImgStyle]);
@@ -117,16 +117,12 @@ function arrangeTitle(s_tabTitle) {
 // ============================================================
 function arrangeUrl(s_tabUrl) {
     var result = "";
-    var s_subUrl;        
-    for (var i = 0; i < s_tabUrl.length; i=i+20) {   
-        s_subUrl = s_tabUrl.substring(i);
-        if (i + 20 < s_tabUrl.length) {
-            result = result + s_subUrl + " ";
-        } else {
-            result = result + s_subUrl;
-        }
+
+    if (s_tabUrl.length > 40 ){
+        result = s_tabUrl.substring(0,40) + "...";
+    }else{
+        result = s_tabUrl;
     }
-    console.log(result);
     return result;
 };
 
